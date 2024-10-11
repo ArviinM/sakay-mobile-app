@@ -1,0 +1,77 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/LufgaBlack.ttf",
+      "sha1": "e15bb23430329e7609f3f832a3324ab233a01140"
+    },
+    {
+      "path": "assets/fonts/LufgaBlackItalic.ttf",
+      "sha1": "f630dfda0521c50a6e98ded75c3a44b54ecbe316"
+    },
+    {
+      "path": "assets/fonts/LufgaBold.ttf",
+      "sha1": "a82d5592d14fd116c6e9d5f51dc66740e735c727"
+    },
+    {
+      "path": "assets/fonts/LufgaBoldItalic.ttf",
+      "sha1": "7814b99ec768a671f943816af2deb4d282d06a1b"
+    },
+    {
+      "path": "assets/fonts/LufgaExtraBold.ttf",
+      "sha1": "43a13255b8ef594cb47a2e0804faaaefbe7b876c"
+    },
+    {
+      "path": "assets/fonts/LufgaExtraBoldItalic.ttf",
+      "sha1": "183121c18bf6be884c9ed8712f11cbfe042bca22"
+    },
+    {
+      "path": "assets/fonts/LufgaExtraLight.ttf",
+      "sha1": "4b21c1a0b193e36257f8ac8f955b2a7d07082792"
+    },
+    {
+      "path": "assets/fonts/LufgaExtraLightItalic.ttf",
+      "sha1": "5a86efaec33c9aad123a8d10858bc3d56ab8da1a"
+    },
+    {
+      "path": "assets/fonts/LufgaItalic.ttf",
+      "sha1": "0038d5c3633eee087f8ed512e095672dd1a73ca5"
+    },
+    {
+      "path": "assets/fonts/LufgaLight.ttf",
+      "sha1": "ca085dd0755dd62497b07e358c56219468a5ebfa"
+    },
+    {
+      "path": "assets/fonts/LufgaLightItalic.ttf",
+      "sha1": "35bcb9badaec19ffd13b235b36d5126c85350f58"
+    },
+    {
+      "path": "assets/fonts/LufgaMedium.ttf",
+      "sha1": "b0bcb8b4847b97b53456e51657592a90ce0fe24c"
+    },
+    {
+      "path": "assets/fonts/LufgaMediumItalic.ttf",
+      "sha1": "5192ec6388fd77484bee5afe799c1ccf09edabff"
+    },
+    {
+      "path": "assets/fonts/LufgaRegular.ttf",
+      "sha1": "e800469ea070f9647688d0a8c2c87edc119666c7"
+    },
+    {
+      "path": "assets/fonts/LufgaSemiBold.ttf",
+      "sha1": "b690ecdc1d62a1cee53157f316d6de2d0f09b194"
+    },
+    {
+      "path": "assets/fonts/LufgaSemiBoldItalic.ttf",
+      "sha1": "546ae687f9442d0ccea318bffb9c269598cb12e1"
+    },
+    {
+      "path": "assets/fonts/LufgaThin.ttf",
+      "sha1": "de7323f5c69ab7713219d5367ecd6a4bf5238e65"
+    },
+    {
+      "path": "assets/fonts/LufgaThinItalic.ttf",
+      "sha1": "cd092544ee35f94ed69fe9bbf9940a928647e9b0"
+    }
+  ]
+}

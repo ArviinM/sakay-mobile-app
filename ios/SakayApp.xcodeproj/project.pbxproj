@@ -8,13 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* SakayAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SakayAppTests.m */; };
+		097B8FF211864E87925BD7CF /* LufgaExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9C4A2BC8DC74F96A5199A64 /* LufgaExtraBoldItalic.ttf */; };
+		0A7546748AE44469B41175C0 /* LufgaThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DE580C5651A4DD2851EB3A7 /* LufgaThin.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-SakayApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-SakayApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		309205A66CE546F09CBC7B61 /* LufgaMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E907EF9B88D0441391EC6454 /* LufgaMedium.ttf */; };
+		36C848F6CED94173ACB2F1E9 /* LufgaItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D6E0E5D7A3A40AFB28B70AE /* LufgaItalic.ttf */; };
+		3CD8B6C8874C443DA2DB8B30 /* LufgaExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 930B566C8D4B476680D9B78B /* LufgaExtraLightItalic.ttf */; };
+		465F0E54AA704B6A8B5B6448 /* LufgaThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351D6A763E344324B9F8BD53 /* LufgaThinItalic.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-SakayApp-SakayAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SakayApp-SakayAppTests.a */; };
+		77E61CFB4F824EA4956654C0 /* LufgaBlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7766D591181A4151AE727F67 /* LufgaBlackItalic.ttf */; };
+		7B847C21C177447C9021E093 /* LufgaMediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44EC597BC0B54F9ABE21477F /* LufgaMediumItalic.ttf */; };
 		8078C5D134F7A244FF20FC91 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4FE44C5B6CD41A1898965588 /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8C25A65B3C9147C1AF091959 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42289BE371D4A879F4B91BC /* BootSplash.storyboard */; };
+		97D00CBA8BA24E79ABFA8CD8 /* LufgaSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5338062ADF0434A930264D6 /* LufgaSemiBold.ttf */; };
+		A18FB8E667D54C00A9938EF2 /* LufgaRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26F8CC0B2AB948F1990F311C /* LufgaRegular.ttf */; };
+		A629F996B4B84667828B6892 /* LufgaLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32A3AEC042514F388BC5F575 /* LufgaLight.ttf */; };
+		AAD3B668514240B6BDA3964D /* LufgaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FD8135A5F094D50B7309A6D /* LufgaBlack.ttf */; };
+		CA387604BD4C4214B448BDD7 /* LufgaExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4363E7E7F4D3EAFA858E1 /* LufgaExtraLight.ttf */; };
+		CA9C84DDFF3B419191CB642B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1C8CBFF727484A924A3529 /* Colors.xcassets */; };
+		E352425DB7D44449868F183A /* LufgaBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5F4700FCC422BA9AB74C4 /* LufgaBold.ttf */; };
+		E5EA0E3D1C7941C4889A68E9 /* LufgaSemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 452083529A304C9D83EADF58 /* LufgaSemiBoldItalic.ttf */; };
+		EAD9263A3F474713AAC5652B /* LufgaLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AD454A8D8DA4DAB8FBD85B5 /* LufgaLightItalic.ttf */; };
+		F1B2262178B7404BB497371D /* LufgaExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E38CB6A32D5D4D56B8B90EDC /* LufgaExtraBold.ttf */; };
+		F7546033E55746CBB1177052 /* LufgaBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F61340668A5A4FD8900F0020 /* LufgaBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,14 +59,34 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SakayApp/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SakayApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-SakayApp-SakayAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SakayApp-SakayAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F8CC0B2AB948F1990F311C /* LufgaRegular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaRegular.ttf; path = ../assets/fonts/LufgaRegular.ttf; sourceTree = "<group>"; };
+		32A3AEC042514F388BC5F575 /* LufgaLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLight.ttf; path = ../assets/fonts/LufgaLight.ttf; sourceTree = "<group>"; };
+		351D6A763E344324B9F8BD53 /* LufgaThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaThinItalic.ttf; path = ../assets/fonts/LufgaThinItalic.ttf; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-SakayApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SakayApp.debug.xcconfig"; path = "Target Support Files/Pods-SakayApp/Pods-SakayApp.debug.xcconfig"; sourceTree = "<group>"; };
-		4FE44C5B6CD41A1898965588 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SakayApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		44EC597BC0B54F9ABE21477F /* LufgaMediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaMediumItalic.ttf; path = ../assets/fonts/LufgaMediumItalic.ttf; sourceTree = "<group>"; };
+		452083529A304C9D83EADF58 /* LufgaSemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBoldItalic.ttf; path = ../assets/fonts/LufgaSemiBoldItalic.ttf; sourceTree = "<group>"; };
+		4AD454A8D8DA4DAB8FBD85B5 /* LufgaLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaLightItalic.ttf; path = ../assets/fonts/LufgaLightItalic.ttf; sourceTree = "<group>"; };
+		4BF5F4700FCC422BA9AB74C4 /* LufgaBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBold.ttf; path = ../assets/fonts/LufgaBold.ttf; sourceTree = "<group>"; };
+		4FE44C5B6CD41A1898965588 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = SakayApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SakayApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SakayApp.release.xcconfig"; path = "Target Support Files/Pods-SakayApp/Pods-SakayApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-SakayApp-SakayAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SakayApp-SakayAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SakayApp-SakayAppTests/Pods-SakayApp-SakayAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BA4363E7E7F4D3EAFA858E1 /* LufgaExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraLight.ttf; path = ../assets/fonts/LufgaExtraLight.ttf; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-SakayApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SakayApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7766D591181A4151AE727F67 /* LufgaBlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBlackItalic.ttf; path = ../assets/fonts/LufgaBlackItalic.ttf; sourceTree = "<group>"; };
+		7FD8135A5F094D50B7309A6D /* LufgaBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBlack.ttf; path = ../assets/fonts/LufgaBlack.ttf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SakayApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SakayApp-SakayAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SakayApp-SakayAppTests.release.xcconfig"; path = "Target Support Files/Pods-SakayApp-SakayAppTests/Pods-SakayApp-SakayAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		8D6E0E5D7A3A40AFB28B70AE /* LufgaItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaItalic.ttf; path = ../assets/fonts/LufgaItalic.ttf; sourceTree = "<group>"; };
+		8DE580C5651A4DD2851EB3A7 /* LufgaThin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaThin.ttf; path = ../assets/fonts/LufgaThin.ttf; sourceTree = "<group>"; };
+		930B566C8D4B476680D9B78B /* LufgaExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraLightItalic.ttf; path = ../assets/fonts/LufgaExtraLightItalic.ttf; sourceTree = "<group>"; };
+		A9C4A2BC8DC74F96A5199A64 /* LufgaExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraBoldItalic.ttf; path = ../assets/fonts/LufgaExtraBoldItalic.ttf; sourceTree = "<group>"; };
+		BD1C8CBFF727484A924A3529 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = SakayApp/Colors.xcassets; sourceTree = "<group>"; };
+		D5338062ADF0434A930264D6 /* LufgaSemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaSemiBold.ttf; path = ../assets/fonts/LufgaSemiBold.ttf; sourceTree = "<group>"; };
+		E38CB6A32D5D4D56B8B90EDC /* LufgaExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaExtraBold.ttf; path = ../assets/fonts/LufgaExtraBold.ttf; sourceTree = "<group>"; };
+		E907EF9B88D0441391EC6454 /* LufgaMedium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaMedium.ttf; path = ../assets/fonts/LufgaMedium.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F42289BE371D4A879F4B91BC /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = SakayApp/BootSplash.storyboard; sourceTree = "<group>"; };
+		F61340668A5A4FD8900F0020 /* LufgaBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LufgaBoldItalic.ttf; path = ../assets/fonts/LufgaBoldItalic.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +137,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				4FE44C5B6CD41A1898965588 /* PrivacyInfo.xcprivacy */,
+				F42289BE371D4A879F4B91BC /* BootSplash.storyboard */,
+				BD1C8CBFF727484A924A3529 /* Colors.xcassets */,
 			);
 			name = SakayApp;
 			sourceTree = "<group>";
@@ -109,6 +151,32 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-SakayApp-SakayAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		437D824D8DEA4B8C82D6AFA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FD8135A5F094D50B7309A6D /* LufgaBlack.ttf */,
+				7766D591181A4151AE727F67 /* LufgaBlackItalic.ttf */,
+				4BF5F4700FCC422BA9AB74C4 /* LufgaBold.ttf */,
+				F61340668A5A4FD8900F0020 /* LufgaBoldItalic.ttf */,
+				E38CB6A32D5D4D56B8B90EDC /* LufgaExtraBold.ttf */,
+				A9C4A2BC8DC74F96A5199A64 /* LufgaExtraBoldItalic.ttf */,
+				5BA4363E7E7F4D3EAFA858E1 /* LufgaExtraLight.ttf */,
+				930B566C8D4B476680D9B78B /* LufgaExtraLightItalic.ttf */,
+				8D6E0E5D7A3A40AFB28B70AE /* LufgaItalic.ttf */,
+				32A3AEC042514F388BC5F575 /* LufgaLight.ttf */,
+				4AD454A8D8DA4DAB8FBD85B5 /* LufgaLightItalic.ttf */,
+				E907EF9B88D0441391EC6454 /* LufgaMedium.ttf */,
+				44EC597BC0B54F9ABE21477F /* LufgaMediumItalic.ttf */,
+				26F8CC0B2AB948F1990F311C /* LufgaRegular.ttf */,
+				D5338062ADF0434A930264D6 /* LufgaSemiBold.ttf */,
+				452083529A304C9D83EADF58 /* LufgaSemiBoldItalic.ttf */,
+				8DE580C5651A4DD2851EB3A7 /* LufgaThin.ttf */,
+				351D6A763E344324B9F8BD53 /* LufgaThinItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -127,6 +195,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				437D824D8DEA4B8C82D6AFA4 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -249,6 +318,26 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				8078C5D134F7A244FF20FC91 /* PrivacyInfo.xcprivacy in Resources */,
+				8C25A65B3C9147C1AF091959 /* BootSplash.storyboard in Resources */,
+				CA9C84DDFF3B419191CB642B /* Colors.xcassets in Resources */,
+				AAD3B668514240B6BDA3964D /* LufgaBlack.ttf in Resources */,
+				77E61CFB4F824EA4956654C0 /* LufgaBlackItalic.ttf in Resources */,
+				E352425DB7D44449868F183A /* LufgaBold.ttf in Resources */,
+				F7546033E55746CBB1177052 /* LufgaBoldItalic.ttf in Resources */,
+				F1B2262178B7404BB497371D /* LufgaExtraBold.ttf in Resources */,
+				097B8FF211864E87925BD7CF /* LufgaExtraBoldItalic.ttf in Resources */,
+				CA387604BD4C4214B448BDD7 /* LufgaExtraLight.ttf in Resources */,
+				3CD8B6C8874C443DA2DB8B30 /* LufgaExtraLightItalic.ttf in Resources */,
+				36C848F6CED94173ACB2F1E9 /* LufgaItalic.ttf in Resources */,
+				A629F996B4B84667828B6892 /* LufgaLight.ttf in Resources */,
+				EAD9263A3F474713AAC5652B /* LufgaLightItalic.ttf in Resources */,
+				309205A66CE546F09CBC7B61 /* LufgaMedium.ttf in Resources */,
+				7B847C21C177447C9021E093 /* LufgaMediumItalic.ttf in Resources */,
+				A18FB8E667D54C00A9938EF2 /* LufgaRegular.ttf in Resources */,
+				97D00CBA8BA24E79ABFA8CD8 /* LufgaSemiBold.ttf in Resources */,
+				E5EA0E3D1C7941C4889A68E9 /* LufgaSemiBoldItalic.ttf in Resources */,
+				0A7546748AE44469B41175C0 /* LufgaThin.ttf in Resources */,
+				465F0E54AA704B6A8B5B6448 /* LufgaThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SakayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +574,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arvinrhen.sakay;
 				PRODUCT_NAME = SakayApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -499,6 +589,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SakayApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,7 +601,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arvinrhen.sakay;
 				PRODUCT_NAME = SakayApp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

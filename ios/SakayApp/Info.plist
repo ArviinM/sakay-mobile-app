@@ -26,16 +26,15 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>BootSplash</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arm64</string>
@@ -48,5 +47,26 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LufgaBlack.ttf</string>
+		<string>LufgaBlackItalic.ttf</string>
+		<string>LufgaBold.ttf</string>
+		<string>LufgaBoldItalic.ttf</string>
+		<string>LufgaExtraBold.ttf</string>
+		<string>LufgaExtraBoldItalic.ttf</string>
+		<string>LufgaExtraLight.ttf</string>
+		<string>LufgaExtraLightItalic.ttf</string>
+		<string>LufgaItalic.ttf</string>
+		<string>LufgaLight.ttf</string>
+		<string>LufgaLightItalic.ttf</string>
+		<string>LufgaMedium.ttf</string>
+		<string>LufgaMediumItalic.ttf</string>
+		<string>LufgaRegular.ttf</string>
+		<string>LufgaSemiBold.ttf</string>
+		<string>LufgaSemiBoldItalic.ttf</string>
+		<string>LufgaThin.ttf</string>
+		<string>LufgaThinItalic.ttf</string>
+	</array>
 </dict>
 </plist>
