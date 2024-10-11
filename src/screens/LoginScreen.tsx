@@ -1,26 +1,33 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Button, TouchableOpacity, Text, View, Image} from 'react-native';
+import {TouchableOpacity, Text, View, Image} from 'react-native';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 import {RootState} from '../store/store.ts';
 import {IMAGES} from '../constants/images.ts';
 import {scale} from '../constants/size.ts';
 import {COLORS} from '../constants/colors.ts';
 import {setUserId, setUserRole} from '../store/slices/userSlice.ts';
+import {useNavigation} from '@react-navigation/native';
+import {RootNavigationParams} from '../constants/navigator.ts';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
   const userState = useSelector((state: RootState) => state.user);
   const insets = useSafeAreaInsets();
 
+  const navigation = useNavigation<StackNavigationProp<RootNavigationParams>>();
+
   const handleLoginAsDriver = () => {
     dispatch(setUserRole({role: 'driver'}));
     dispatch(setUserId({userId: '201'}));
+    navigation.navigate('DriverTab');
   };
 
   const handleLoginAsCustomer = () => {
     dispatch(setUserRole({role: 'customer'}));
     dispatch(setUserId({userId: '101'}));
+    navigation.navigate('CustomerStack');
   };
 
   return (
