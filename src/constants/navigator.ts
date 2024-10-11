@@ -19,7 +19,7 @@ export function navigate<RouteName extends keyof RootNavigationParams>(
 }
 
 export type RootNavigationParams = {
-  LoginScreen: {};
-  CustomerTabs: {};
-  DriverTabs: {};
+  LoginScreen: undefined;
+  CustomerStack: undefined;
+  DriverStack: undefined;
 };
