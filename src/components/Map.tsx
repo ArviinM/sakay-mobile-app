@@ -168,7 +168,7 @@ const Map: React.FC<MapProps> = ({
                   latitude: selectedRide.destination.latitude,
                   longitude: selectedRide.destination.longitude,
                 }}
-                apikey={'AIzaSyD6Jy6_UTQU8OjExMETHUIdcYzUYXCsr_k'}
+                apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
                 strokeWidth={4}
                 strokeColor={COLORS.darkPurple}
               />
