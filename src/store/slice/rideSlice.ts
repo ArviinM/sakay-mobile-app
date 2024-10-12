@@ -2,6 +2,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {Ride} from '../../types/rideTypes';
 import {RootState} from '../store';
+import {User} from '../../types/userTypes.ts';
 
 interface RideState {
   rideRequests: Ride[];
@@ -36,7 +37,7 @@ export const fetchRideRequestCustomer = createAsyncThunk(
       `http://localhost:3000/users/${ride.userId}`,
     );
     const customerData = await customerResponse.json();
-    return {...ride, customer: customerData};
+    return {...ride, customer: customerData as User};
   },
 );
 
@@ -217,6 +218,7 @@ const rideSlice = createSlice({
       .addCase(dropOffCustomer.fulfilled, (state, action) => {
         // Clear activeRide and optionally update earnings
         state.activeRide = null;
+        // we will add here to update driver's earnings.
         // ... (dispatch action to update earnings if needed)
       });
   },
