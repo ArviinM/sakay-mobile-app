@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "id": "501",
+      "name": "Leonard Hofstadter",
+      "role": "driver",
+      "profilePicture": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "earnings": 1500,
+      "review": 4.9
+    },
+    {
+      "id": "502",
+      "name": "Bob Williams",
+      "role": "driver",
+      "profilePicture": "https://example.com/driver2.png",
+      "earnings": 2000,
+      "review": 4.8
+    },
+    {
+      "id": "503",
+      "name": "Charlie Brown",
+      "role": "driver",
+      "profilePicture": "https://example.com/driver3.png",
+      "earnings": 1200,
+      "review": 4.7
+    },
+    {
+      "id": "101",
+      "name": "David Lee",
+      "role": "customer",
+      "profilePicture": "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "102",
+      "name": "Emily Garcia",
+      "role": "customer",
+      "profilePicture": "https://example.com/customer2.png"
+    }
+  ],
+  "rideRequests": [
+    {
+      "id": "sakay-001",
+      "userId": "102",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.298239,
+        "longitude": 121.033009
+      },
+      "destination": {
+        "latitude": 14.3016156,
+        "longitude": 121.0449762
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T10:00:00.000Z",
+      "timestamp": "2024-10-11T20:00:00.000Z"
+    },
+    {
+      "id": "sakay-002",
+      "userId": "101",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.294027,
+        "longitude": 121.03733
+      },
+      "destination": {
+        "latitude": 14.289645,
+        "longitude": 121.0415979
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T11:00:00.000Z",
+      "timestamp": "2024-10-11T20:30:00.000Z"
+    },
+    {
+      "id": "sakay-003",
+      "userId": "103",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.304904,
+        "longitude": 121.0424115
+      },
+      "destination": {
+        "latitude": 14.3048547,
+        "longitude": 121.0358095
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T11:00:00.000Z",
+      "timestamp": "2024-10-11T20:30:00.000Z"
+    },
+    {
+      "id": "sakay-004",
+      "userId": "104",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.296789,
+        "longitude": 121.030156
+      },
+      "destination": {
+        "latitude": 14.292345,
+        "longitude": 121.039876
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T11:30:00.000Z",
+      "timestamp": "2024-10-12T10:00:00.000Z"
+    },
+    {
+      "id": "sakay-005",
+      "userId": "105",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.301234,
+        "longitude": 121.045678
+      },
+      "destination": {
+        "latitude": 14.297890,
+        "longitude": 121.033456
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T12:00:00.000Z",
+      "timestamp": "2024-10-12T10:30:00.000Z"
+    },
+    {
+      "id": "sakay-006",
+      "userId": "106",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.290987,
+        "longitude": 121.040123
+      },
+      "destination": {
+        "latitude": 14.303456,
+        "longitude": 121.038765
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T12:30:00.000Z",
+      "timestamp": "2024-10-12T11:00:00.000Z"
+    },
+    {
+      "id": "sakay-007",
+      "userId": "107",
+      "driverId": null,
+      "pickupLocation": {
+        "latitude": 14.299876,
+        "longitude": 121.036543
+      },
+      "destination": {
+        "latitude": 14.295432,
+        "longitude": 121.042109
+      },
+      "status": "pending",
+      "pickupTime": "2024-10-12T13:00:00.000Z",
+      "timestamp": "2024-10-12T11:30:00.000Z"
+    }
+  ]
+}
