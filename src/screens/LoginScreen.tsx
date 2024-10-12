@@ -1,33 +1,26 @@
-import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {TouchableOpacity, Text, View, Image} from 'react-native';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
-import {RootState} from '../store/store.ts';
+import {RootState, useAppDispatch} from '../store/store.ts';
 import {IMAGES} from '../constants/images.ts';
 import {scale} from '../constants/size.ts';
 import {COLORS} from '../constants/colors.ts';
-import {setUserId, setUserRole} from '../store/slices/userSlice.ts';
 import {useNavigation} from '@react-navigation/native';
 import {RootNavigationParams} from '../constants/navigator.ts';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {fetchUserById} from '../store/slice/userSlice.ts';
 
 const LoginScreen = () => {
-  const dispatch = useDispatch();
+  const navigation = useNavigation<StackNavigationProp<RootNavigationParams>>();
   const userState = useSelector((state: RootState) => state.user);
+
+  const dispatch = useAppDispatch();
   const insets = useSafeAreaInsets();
 
-  const navigation = useNavigation<StackNavigationProp<RootNavigationParams>>();
-
-  const handleLoginAsDriver = () => {
-    dispatch(setUserRole({role: 'driver'}));
-    dispatch(setUserId({userId: '201'}));
-    navigation.navigate('DriverTab');
-  };
-
-  const handleLoginAsCustomer = () => {
-    dispatch(setUserRole({role: 'customer'}));
-    dispatch(setUserId({userId: '101'}));
-    navigation.navigate('CustomerStack');
+  const handleLoginAsDriver = async (userId: string) => {
+    dispatch(fetchUserById(userId));
+    navigation.navigate('DriverScreen');
   };
 
   return (
@@ -70,8 +63,9 @@ const LoginScreen = () => {
             textAlign: 'center',
             color: COLORS.darkPurple,
           }}>
-          Current State: {userState?.role || 'null'} {'\n'}
-          Current ID: {userState?.userId || 'null'}
+          Current State: {userState?.userData?.role || 'null'} {'\n'}
+          Current Name: {userState?.userData?.name || 'null'} {'\n'}
+          Current ID: {userState?.userData?.id || 'null'}
         </Text>
         <View
           style={{
@@ -81,28 +75,28 @@ const LoginScreen = () => {
             marginVertical: scale(20),
             gap: scale(10),
           }}>
+          {/*<TouchableOpacity*/}
+          {/*  onPress={handleLoginAsCustomer}*/}
+          {/*  style={{*/}
+          {/*    backgroundColor: COLORS.white,*/}
+          {/*    borderRadius: 30,*/}
+          {/*    borderColor: 'rgba(0,0,0,0.47)',*/}
+          {/*    borderWidth: 1,*/}
+          {/*    width: '90%',*/}
+          {/*    paddingVertical: scale(14),*/}
+          {/*  }}>*/}
+          {/*  <Text*/}
+          {/*    style={{*/}
+          {/*      fontFamily: 'Lufga-Regular',*/}
+          {/*      fontSize: scale(16),*/}
+          {/*      textAlign: 'center',*/}
+          {/*      color: COLORS.darkPurple,*/}
+          {/*    }}>*/}
+          {/*    Login as Customer*/}
+          {/*  </Text>*/}
+          {/*</TouchableOpacity>*/}
           <TouchableOpacity
-            onPress={handleLoginAsCustomer}
-            style={{
-              backgroundColor: COLORS.white,
-              borderRadius: 30,
-              borderColor: 'rgba(0,0,0,0.47)',
-              borderWidth: 1,
-              width: '90%',
-              paddingVertical: scale(14),
-            }}>
-            <Text
-              style={{
-                fontFamily: 'Lufga-Regular',
-                fontSize: scale(16),
-                textAlign: 'center',
-                color: COLORS.darkPurple,
-              }}>
-              Login as Customer
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleLoginAsDriver}
+            onPress={() => handleLoginAsDriver('501')}
             style={{
               width: '90%',
               paddingVertical: scale(14),
