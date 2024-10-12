@@ -4,7 +4,7 @@ import BootSplash from 'react-native-bootsplash';
 import {navigationRef, Stack} from '../constants/navigator.ts';
 import LoginScreen from '../screens/LoginScreen.tsx';
 import CustomerStack from './Customer/CustomerStack.tsx';
-import DriverTab from './Driver/DriverTab.tsx';
+import DriverScreen from '../screens/DriverScreen.tsx';
 
 const RootNavigation = () => {
   return (
@@ -25,8 +25,8 @@ const RootNavigation = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name={'DriverTab'}
-          component={DriverTab}
+          name={'DriverScreen'}
+          component={DriverScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
