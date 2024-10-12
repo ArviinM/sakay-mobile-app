@@ -1,18 +1,13 @@
-import {UserActionTypes} from '../constants/constants.ts';
-
-export interface UserState {
-  role: 'driver' | 'customer' | null;
-  userId?: string;
+export interface User {
+  id: string;
+  name: string;
+  role: 'driver' | 'customer';
+  profilePicture: string;
+  earnings?: number; // Optional for customers
+  review?: number; // Optional for customers
 }
-
-export type SetUserRolePayload = {role: 'driver' | 'customer'};
-export type SetUserIdPayload = {userId: string};
 
 export interface PayloadAction<TType extends string, TPayload> {
   type: TType;
   payload: TPayload;
 }
-
-export type UserAction =
-  | PayloadAction<UserActionTypes.SET_USER_ROLE, SetUserRolePayload>
-  | PayloadAction<UserActionTypes.SET_USER_ID, SetUserIdPayload>;
