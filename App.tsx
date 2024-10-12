@@ -13,6 +13,7 @@ import BootSplash from 'react-native-bootsplash';
 import RootNavigation from './src/navigation';
 import {Provider} from 'react-redux';
 import store from './src/store/store.ts';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 function App(): React.JSX.Element {
   useEffect(() => {
@@ -31,7 +32,9 @@ function App(): React.JSX.Element {
       <SafeAreaProvider>
         <GestureHandlerRootView style={{flex: 1}}>
           <Provider store={store}>
-            <RootNavigation />
+            <BottomSheetModalProvider>
+              <RootNavigation />
+            </BottomSheetModalProvider>
           </Provider>
         </GestureHandlerRootView>
       </SafeAreaProvider>
