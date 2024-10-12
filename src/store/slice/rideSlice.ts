@@ -1,4 +1,3 @@
-// src/store/slices/rideSlice.ts
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {Ride} from '../../types/rideTypes';
 import {RootState} from '../store';
@@ -7,7 +6,7 @@ import {User} from '../../types/userTypes.ts';
 interface RideState {
   rideRequests: Ride[];
   activeRide: Ride | null;
-  currentRideRequest: Ride | null; // Add this line
+  currentRideRequest: Ride | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   customerFetchStatus: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
@@ -16,7 +15,7 @@ interface RideState {
 const initialState: RideState = {
   rideRequests: [],
   activeRide: null,
-  currentRideRequest: null, // Add this line
+  currentRideRequest: null,
   status: 'idle',
   customerFetchStatus: 'idle',
   error: null,
