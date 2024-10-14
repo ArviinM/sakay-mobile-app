@@ -5,7 +5,7 @@
       "name": "Leonard Hofstadter",
       "role": "driver",
       "profilePicture": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "earnings": 1500,
+      "earnings": 1560.065,
       "review": 4.9
     },
     {
@@ -17,14 +17,6 @@
       "review": 4.8
     },
     {
-      "id": "503",
-      "name": "Charlie Brown",
-      "role": "driver",
-      "profilePicture": "https://example.com/driver3.png",
-      "earnings": 1200,
-      "review": 4.7
-    },
-    {
       "id": "101",
       "name": "David Lee",
       "role": "customer",
@@ -34,7 +26,7 @@
       "id": "102",
       "name": "Emily Garcia",
       "role": "customer",
-      "profilePicture": "https://example.com/customer2.png"
+      "profilePicture": "https://images.unsplash.com/photo-1521566652839-697aa473761a?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
   "rideRequests": [
@@ -51,12 +43,12 @@
         "longitude": 121.0449762
       },
       "status": "pending",
-      "pickupTime": "2024-10-13T10:00:00.000Z",
-      "timestamp": "2024-10-12T20:00:00.000Z"
+      "pickupTime": "2024-10-15T02:00:00.000000Z",
+      "timestamp": "2024-10-15T01:00:00.000000Z"
     },
     {
       "id": "sakay-002",
-      "userId": "101",
+      "userId": "102",
       "driverId": null,
       "pickupLocation": {
         "latitude": 14.294027,
@@ -67,13 +59,13 @@
         "longitude": 121.0415979
       },
       "status": "pending",
-      "pickupTime": "2024-10-13T11:00:00.000Z",
-      "timestamp": "2024-10-12T20:30:00.000Z"
+      "pickupTime": "2024-10-15T03:00:00.000000Z",
+      "timestamp": "2024-10-15T02:00:00.000000Z"
     },
     {
       "id": "sakay-003",
       "userId": "101",
-      "driverId": "501",
+      "driverId": null,
       "pickupLocation": {
         "latitude": 14.304904,
         "longitude": 121.0424115
@@ -83,12 +75,12 @@
         "longitude": 121.0358095
       },
       "status": "pending",
-      "pickupTime": "2024-10-13T11:00:00.000Z",
-      "timestamp": "2024-10-12T20:30:00.000Z"
+      "pickupTime": "2024-10-15T04:00:00.000000Z",
+      "timestamp": "2024-10-15T03:00:00.000000Z"
     },
     {
       "id": "sakay-004",
-      "userId": "101",
+      "userId": "102",
       "driverId": null,
       "pickupLocation": {
         "latitude": 14.296789,
@@ -99,56 +91,8 @@
         "longitude": 121.039876
       },
       "status": "pending",
-      "pickupTime": "2024-10-13T11:30:00.000Z",
-      "timestamp": "2024-10-13T10:00:00.000Z"
-    },
-    {
-      "id": "sakay-005",
-      "userId": "101",
-      "driverId": null,
-      "pickupLocation": {
-        "latitude": 14.301234,
-        "longitude": 121.045678
-      },
-      "destination": {
-        "latitude": 14.29789,
-        "longitude": 121.033456
-      },
-      "status": "pending",
-      "pickupTime": "2024-10-13T12:00:00.000Z",
-      "timestamp": "2024-10-13T10:30:00.000Z"
-    },
-    {
-      "id": "sakay-006",
-      "userId": "101",
-      "driverId": null,
-      "pickupLocation": {
-        "latitude": 14.290987,
-        "longitude": 121.040123
-      },
-      "destination": {
-        "latitude": 14.303456,
-        "longitude": 121.038765
-      },
-      "status": "pending",
-      "pickupTime": "2024-10-13T12:30:00.000Z",
-      "timestamp": "2024-10-13T11:00:00.000Z"
-    },
-    {
-      "id": "sakay-007",
-      "userId": "101",
-      "driverId": null,
-      "pickupLocation": {
-        "latitude": 14.299876,
-        "longitude": 121.036543
-      },
-      "destination": {
-        "latitude": 14.295432,
-        "longitude": 121.042109
-      },
-      "status": "pending",
-      "pickupTime": "2024-10-13T13:00:00.000Z",
-      "timestamp": "2024-10-13T11:30:00.000Z"
+      "pickupTime": "2024-10-15T05:00:00.000000Z",
+      "timestamp": "2024-10-15T04:00:00.000000Z"
     }
   ]
 }
