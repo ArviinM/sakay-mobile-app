@@ -115,7 +115,9 @@ const AddressCard: React.FC<AddressCardProps> = ({
               fontSize: scale(12),
               color: COLORS.darkPurple,
             }}>
-            There are {rideRequest} ride request available!
+            {rideRequest === 0
+              ? 'No nearby ride request'
+              : `There are ${rideRequest} ride request available!`}
           </Text>
         </View>
       </View>
