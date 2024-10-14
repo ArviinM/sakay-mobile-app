@@ -5,7 +5,7 @@
  * @format
  */
 import React, {useEffect} from 'react';
-import {StatusBar, Text, View} from 'react-native';
+import {StatusBar} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
@@ -14,6 +14,7 @@ import RootNavigation from './src/navigation';
 import {Provider} from 'react-redux';
 import store from './src/store/store.ts';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import Toast from 'react-native-toast-message';
 
 function App(): React.JSX.Element {
   useEffect(() => {
@@ -38,6 +39,7 @@ function App(): React.JSX.Element {
           </Provider>
         </GestureHandlerRootView>
       </SafeAreaProvider>
+      <Toast />
     </>
   );
 }
