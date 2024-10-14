@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {scale} from '../constants/size';
 import {COLORS} from '../constants/colors';
-import {formatDistanceToNow} from 'date-fns';
+import {format} from 'date-fns';
 
 interface ProfileCardProps {
   name: string;
@@ -51,7 +51,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               fontSize: scale(13),
               color: COLORS.purple,
             }}>
-            {formatDistanceToNow(new Date(timestamp), {})}
+            Booked {format(new Date(timestamp), 'hh:mm aaa')}
           </Text>
         )}
         {pay && (
