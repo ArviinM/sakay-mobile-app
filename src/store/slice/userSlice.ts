@@ -16,9 +16,14 @@ const initialState: UserState = {
 
 export const fetchUserById = createAsyncThunk(
   'user/fetchUserById',
-  async (userId: string) => {
-    const response = await fetch(`http://localhost:3000/users/${userId}`);
-    return (await response.json()) as Promise<User>;
+  async (userId: string, {rejectWithValue}) => {
+    try {
+      const response = await fetch(`http://localhost:3000/users/${userId}`);
+      return (await response.json()) as Promise<User>;
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      return rejectWithValue(error);
+    }
   },
 );
 
