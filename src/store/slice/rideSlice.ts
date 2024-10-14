@@ -3,6 +3,8 @@ import {Ride} from '../../types/rideTypes';
 import {RootState} from '../store';
 import {User} from '../../types/userTypes.ts';
 import {getAddressFromCoordinates} from '../../utils/geocoding.ts';
+import {calculateDistanceAndEarnings} from '../../utils/calculateDistanceAndEarnings.ts';
+import {updateUserData} from './userSlice.ts';
 
 interface RideState {
   rideRequests: Ride[];
@@ -171,10 +173,11 @@ export const pickupCustomer = createAsyncThunk(
 );
 
 export const dropOffCustomer = createAsyncThunk(
-  // Changed to dropOffCustomer
   'ride/dropOffCustomer',
-  async (rideId: string) => {
-    // dispatch is included here
+  async (rideId: string, {dispatch, getState}) => {
+    const state = getState() as RootState;
+    const userId = state.user.userData?.id;
+
     const response = await fetch(
       `http://localhost:3000/rideRequests/${rideId}`,
       {
@@ -187,8 +190,37 @@ export const dropOffCustomer = createAsyncThunk(
     );
 
     if (!response.ok) {
-      throw new Error('Failed to drop off customer'); // Changed message
+      throw new Error('Failed to drop off customer');
     }
+
+    const activeRide = state.ride.activeRide;
+    if (!activeRide) {
+      throw new Error('Active ride not found');
+    }
+    const {earnings} = calculateDistanceAndEarnings(activeRide);
+
+    const updateEarningsResponse = await fetch(
+      `http://localhost:3000/users/${userId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          earnings: (state.user.userData?.earnings || 0) + earnings,
+        }),
+      },
+    );
+
+    if (!updateEarningsResponse.ok) {
+      throw new Error('Failed to update driver earnings');
+    }
+
+    dispatch(
+      updateUserData({
+        earnings: (state.user.userData?.earnings || 0) + earnings,
+      }),
+    );
 
     return response.json() as Promise<Ride>;
   },

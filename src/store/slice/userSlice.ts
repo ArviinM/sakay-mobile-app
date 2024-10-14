@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {User} from '../../types/userTypes';
 
 interface UserState {
@@ -36,6 +36,11 @@ const userSlice = createSlice({
         state.isOnline = !state.isOnline;
       }
     },
+    updateUserData: (state, action: PayloadAction<Partial<User>>) => {
+      if (state.userData) {
+        state.userData = {...state.userData, ...action.payload};
+      }
+    },
   },
   extraReducers: builder => {
     builder
@@ -56,5 +61,5 @@ const userSlice = createSlice({
   },
 });
 
-export const {toggleOnlineStatus} = userSlice.actions;
+export const {toggleOnlineStatus, updateUserData} = userSlice.actions;
 export default userSlice.reducer;
