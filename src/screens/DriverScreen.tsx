@@ -255,7 +255,10 @@ const DriverScreen = () => {
                   }}
                   onPress={async () => {
                     dispatch(toggleOnlineStatus());
-                    dispatch(fetchRideRequests());
+
+                    if (!userState.isOnline) {
+                      dispatch(fetchRideRequests());
+                    }
                   }}>
                   <Text
                     style={{
