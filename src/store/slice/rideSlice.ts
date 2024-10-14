@@ -2,6 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {Ride} from '../../types/rideTypes';
 import {RootState} from '../store';
 import {User} from '../../types/userTypes.ts';
+import {getAddressFromCoordinates} from '../../utils/geocoding.ts';
 
 interface RideState {
   rideRequests: Ride[];
@@ -23,20 +24,57 @@ const initialState: RideState = {
 
 export const fetchRideRequests = createAsyncThunk(
   'ride/fetchRideRequests',
-  async () => {
-    const response = await fetch('http://localhost:3000/rideRequests');
-    return response.json() as Promise<Ride[]>;
+  async (undefined, {rejectWithValue}) => {
+    try {
+      const response = await fetch('http://localhost:3000/rideRequests');
+      if (!response.ok) {
+        throw new Error('Failed to fetch ride requests');
+      }
+      const data = await response.json();
+
+      const pendingRideRequests = data.filter(
+        (ride: Ride) => ride.status === 'pending',
+      );
+
+      return pendingRideRequests;
+    } catch (error) {
+      console.error('Error fetching ride requests:', error);
+      return rejectWithValue(error);
+    }
   },
 );
 
 export const fetchRideRequestCustomer = createAsyncThunk(
   'ride/fetchRideRequestCustomer',
-  async (ride: Ride) => {
-    const customerResponse = await fetch(
-      `http://localhost:3000/users/${ride.userId}`,
-    );
-    const customerData = await customerResponse.json();
-    return {...ride, customer: customerData as User};
+  async (ride: Ride, {rejectWithValue}) => {
+    try {
+      const customerResponse = await fetch(
+        `http://localhost:3000/users/${ride.userId}`,
+      );
+      if (!customerResponse.ok) {
+        throw new Error(`Failed to fetch customer data for ride ${ride.id}`);
+      }
+      const customerData = await customerResponse.json();
+
+      const pickupAddress = await getAddressFromCoordinates(
+        ride.pickupLocation.latitude,
+        ride.pickupLocation.longitude,
+      );
+      const destinationAddress = await getAddressFromCoordinates(
+        ride.destination.latitude,
+        ride.destination.longitude,
+      );
+
+      return {
+        ...ride,
+        customer: customerData as User,
+        pickupLocation: {...ride.pickupLocation, address: pickupAddress},
+        destination: {...ride.destination, address: destinationAddress},
+      };
+    } catch (error) {
+      console.error('Error fetching customer data:', error);
+      return rejectWithValue(error);
+    }
   },
 );
 
@@ -67,7 +105,7 @@ export const acceptRideRequest = createAsyncThunk(
 
 export const declineRideRequest = createAsyncThunk(
   'ride/declineRideRequest',
-  async (rideId: string, {getState}) => {
+  async (rideId: string) => {
     const response = await fetch(
       `http://localhost:3000/rideRequests/${rideId}`,
       {
@@ -83,7 +121,7 @@ export const declineRideRequest = createAsyncThunk(
       throw new Error('Failed to decline ride request');
     }
 
-    return response.json() as Promise<Ride>;
+    return rideId;
   },
 );
 
@@ -135,7 +173,7 @@ export const pickupCustomer = createAsyncThunk(
 export const dropOffCustomer = createAsyncThunk(
   // Changed to dropOffCustomer
   'ride/dropOffCustomer',
-  async (rideId: string, {dispatch}) => {
+  async (rideId: string) => {
     // dispatch is included here
     const response = await fetch(
       `http://localhost:3000/rideRequests/${rideId}`,
@@ -173,13 +211,12 @@ const rideSlice = createSlice({
         state.status = 'succeeded';
         state.rideRequests = action.payload;
       })
-      .addCase(fetchRideRequests.rejected, (state, action) => {
+      .addCase(fetchRideRequests.rejected, state => {
         state.status = 'failed';
-        state.error = action.error.message || 'Failed to fetch ride requests';
+        state.error = 'Failed to fetch ride requests';
       })
       .addCase(fetchRideRequestCustomer.pending, state => {
         state.customerFetchStatus = 'loading';
-        // You might want to add a loading state here for currentRideRequest
       })
       .addCase(fetchRideRequestCustomer.fulfilled, (state, action) => {
         state.customerFetchStatus = 'succeeded';
@@ -189,36 +226,72 @@ const rideSlice = createSlice({
         state.customerFetchStatus = 'failed';
         console.error('Error fetching ride request:', action.error);
       })
+      .addCase(acceptRideRequest.pending, state => {
+        state.status = 'loading';
+      })
       .addCase(acceptRideRequest.fulfilled, (state, action) => {
-        // Update activeRide and remove from rideRequests
-        state.activeRide = action.payload;
+        state.status = 'succeeded';
+        state.activeRide = {
+          ...action.payload,
+          customer: state.currentRideRequest?.customer,
+        };
         state.rideRequests = state.rideRequests.filter(
           ride => ride.id !== action.payload.id,
         );
+      })
+      .addCase(acceptRideRequest.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message || 'Failed to accept ride request';
+      })
+      .addCase(declineRideRequest.pending, state => {
+        state.status = 'loading';
       })
       .addCase(declineRideRequest.fulfilled, (state, action) => {
-        // Remove declined ride from rideRequests
+        state.status = 'succeeded';
         state.rideRequests = state.rideRequests.filter(
-          ride => ride.id !== action.payload.id,
+          ride => ride.id !== action.payload,
         );
       })
+      .addCase(declineRideRequest.rejected, state => {
+        state.status = 'failed';
+        state.error = 'Failed to decline ride request';
+      })
+      .addCase(startRide.pending, state => {
+        state.status = 'loading';
+      })
       .addCase(startRide.fulfilled, (state, action) => {
-        // Update activeRide status
+        state.status = 'succeeded';
         if (state.activeRide?.id === action.payload.id) {
           state.activeRide.status = action.payload.status;
         }
+      })
+      .addCase(startRide.rejected, state => {
+        state.status = 'failed';
+        state.error = 'Failed to start ride';
+      })
+      .addCase(pickupCustomer.pending, state => {
+        state.status = 'loading';
       })
       .addCase(pickupCustomer.fulfilled, (state, action) => {
-        // Update activeRide status
+        state.status = 'succeeded';
         if (state.activeRide?.id === action.payload.id) {
           state.activeRide.status = action.payload.status;
         }
       })
-      .addCase(dropOffCustomer.fulfilled, (state, action) => {
-        // Clear activeRide and optionally update earnings
+      .addCase(pickupCustomer.rejected, state => {
+        state.status = 'failed';
+        state.error = 'Failed to pick up customer';
+      })
+      .addCase(dropOffCustomer.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(dropOffCustomer.fulfilled, state => {
+        state.status = 'succeeded';
         state.activeRide = null;
-        // we will add here to update driver's earnings.
-        // ... (dispatch action to update earnings if needed)
+      })
+      .addCase(dropOffCustomer.rejected, state => {
+        state.status = 'failed';
+        state.error = 'Failed to drop off customer';
       });
   },
 });
