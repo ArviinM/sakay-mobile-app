@@ -237,8 +237,8 @@ const Map: React.FC<MapProps> = ({
               {activeRide.status === 'picked-up' && (
                 <RideDirections
                   origin={{
-                    latitude: activeRide.pickupLocation.latitude,
-                    longitude: activeRide.pickupLocation.longitude,
+                    latitude: userLocation.coords.latitude,
+                    longitude: userLocation.coords.longitude,
                   }}
                   destination={{
                     latitude: activeRide.destination.latitude,
