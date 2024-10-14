@@ -150,7 +150,6 @@ export const startRide = createAsyncThunk(
 );
 
 export const pickupCustomer = createAsyncThunk(
-  // Changed to pickupCustomer
   'ride/pickupCustomer',
   async (rideId: string) => {
     const response = await fetch(

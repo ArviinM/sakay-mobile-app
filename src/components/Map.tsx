@@ -124,7 +124,7 @@ const Map: React.FC<MapProps> = ({
           showsUserLocation
           showsMyLocationButton
           initialRegion={{
-            latitude: userLocation.coords.latitude, // Example initial location
+            latitude: userLocation.coords.latitude,
             longitude: userLocation.coords.longitude,
             latitudeDelta: 0.004,
             longitudeDelta: 0.016,

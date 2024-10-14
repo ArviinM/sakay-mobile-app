@@ -27,7 +27,7 @@ const LoginScreen = () => {
 
   const handleLoginAsDriver = async (userId: string) => {
     try {
-      await dispatch(fetchUserById(userId)).unwrap(); // Await the fetchUserById thunk
+      await dispatch(fetchUserById(userId)).unwrap();
       navigation.navigate('DriverScreen');
     } catch (e: any) {
       Toast.show({

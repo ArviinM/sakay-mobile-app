@@ -1,10 +1,9 @@
 import React from 'react';
 import {Marker} from 'react-native-maps';
-import {Ride} from '../types/rideTypes';
 import {IMAGES} from '../constants/images';
 
 interface RideRequestMarkerProps {
-  coordinate: {latitude: number; longitude: number}; // Changed to coordinate prop
+  coordinate: {latitude: number; longitude: number};
   onPress?: () => void;
   isActive?: boolean;
 }
@@ -15,7 +14,7 @@ const RideRequestMarker: React.FC<RideRequestMarkerProps> = ({
   isActive,
 }) => (
   <Marker
-    coordinate={coordinate} // Use the coordinate prop directly
+    coordinate={coordinate}
     image={isActive ? IMAGES.locationPin : IMAGES.locationPinRequest}
     onPress={onPress}
   />
