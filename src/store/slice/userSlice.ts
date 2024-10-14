@@ -56,6 +56,5 @@ const userSlice = createSlice({
   },
 });
 
-// No actions are exported here since we're only using the async thunk
 export const {toggleOnlineStatus} = userSlice.actions;
 export default userSlice.reducer;
