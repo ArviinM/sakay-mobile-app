@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
-import {TouchableOpacity, Text, View, Image} from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  View,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 import {RootState, useAppDispatch} from '../store/store.ts';
 import {IMAGES} from '../constants/images.ts';
@@ -10,6 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {RootNavigationParams} from '../constants/navigator.ts';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {fetchUserById} from '../store/slice/userSlice.ts';
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootNavigationParams>>();
@@ -19,8 +26,17 @@ const LoginScreen = () => {
   const insets = useSafeAreaInsets();
 
   const handleLoginAsDriver = async (userId: string) => {
-    dispatch(fetchUserById(userId));
-    navigation.navigate('DriverScreen');
+    try {
+      await dispatch(fetchUserById(userId)).unwrap(); // Await the fetchUserById thunk
+      navigation.navigate('DriverScreen');
+    } catch (e: any) {
+      Toast.show({
+        type: 'error',
+        text1: e.message,
+        topOffset: insets.top,
+      });
+      console.error(e);
+    }
   };
 
   return (
@@ -75,27 +91,8 @@ const LoginScreen = () => {
             marginVertical: scale(20),
             gap: scale(10),
           }}>
-          {/*<TouchableOpacity*/}
-          {/*  onPress={handleLoginAsCustomer}*/}
-          {/*  style={{*/}
-          {/*    backgroundColor: COLORS.white,*/}
-          {/*    borderRadius: 30,*/}
-          {/*    borderColor: 'rgba(0,0,0,0.47)',*/}
-          {/*    borderWidth: 1,*/}
-          {/*    width: '90%',*/}
-          {/*    paddingVertical: scale(14),*/}
-          {/*  }}>*/}
-          {/*  <Text*/}
-          {/*    style={{*/}
-          {/*      fontFamily: 'Lufga-Regular',*/}
-          {/*      fontSize: scale(16),*/}
-          {/*      textAlign: 'center',*/}
-          {/*      color: COLORS.darkPurple,*/}
-          {/*    }}>*/}
-          {/*    Login as Customer*/}
-          {/*  </Text>*/}
-          {/*</TouchableOpacity>*/}
           <TouchableOpacity
+            disabled={userState.status === 'loading'}
             onPress={() => handleLoginAsDriver('501')}
             style={{
               width: '90%',
@@ -110,7 +107,10 @@ const LoginScreen = () => {
                 textAlign: 'center',
                 color: COLORS.white,
               }}>
-              Login as Driver
+              Login as Driver{' '}
+              {userState.status === 'loading' && (
+                <ActivityIndicator size="small" color={COLORS.white} />
+              )}
             </Text>
           </TouchableOpacity>
         </View>
