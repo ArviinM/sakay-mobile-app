@@ -163,6 +163,7 @@ const Map: React.FC<MapProps> = ({
                   longitude: selectedRide.destination.longitude,
                 }}
                 apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                color={COLORS.darkPurple}
               />
               <RideDirections
                 origin={{
@@ -174,6 +175,7 @@ const Map: React.FC<MapProps> = ({
                   longitude: selectedRide.pickupLocation.longitude,
                 }}
                 apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                color={COLORS.purple}
               />
             </>
           )}
@@ -202,6 +204,7 @@ const Map: React.FC<MapProps> = ({
                       longitude: activeRide.pickupLocation.longitude,
                     }}
                     apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                    color={COLORS.purple}
                   />
                   <RideDirections
                     origin={{
@@ -213,6 +216,7 @@ const Map: React.FC<MapProps> = ({
                       longitude: activeRide.destination.longitude,
                     }}
                     apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                    color={COLORS.darkPurple}
                   />
                 </>
               )}
@@ -227,6 +231,7 @@ const Map: React.FC<MapProps> = ({
                     longitude: activeRide.pickupLocation.longitude,
                   }}
                   apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                  color={COLORS.purple}
                 />
               )}
               {activeRide.status === 'picked-up' && (
@@ -240,6 +245,7 @@ const Map: React.FC<MapProps> = ({
                     longitude: activeRide.destination.longitude,
                   }}
                   apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                  color={COLORS.darkPurple}
                 />
               )}
             </>
