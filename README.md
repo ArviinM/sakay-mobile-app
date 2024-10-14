@@ -23,9 +23,9 @@ This is a React Native application that simulates the driver side of a ride-hail
 
 ## Installation
 
-1.  Clone the repository:
+1.  Clone the repository: (use ssh)
     ```bash
-    git clone [invalid URL removed]
+    git clone git@github.com:ArviinM/sakay-mobile-app.git
     ```
 
 2.  Install dependencies:
