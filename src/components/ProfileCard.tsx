@@ -2,11 +2,14 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {scale} from '../constants/size';
 import {COLORS} from '../constants/colors';
+import {formatDistanceToNow} from 'date-fns';
 
 interface ProfileCardProps {
   name: string;
   review?: number;
   earnings?: number;
+  pay?: number;
+  timestamp?: string;
   profilePicture: string;
 }
 
@@ -14,6 +17,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   name,
   review,
   earnings,
+  pay,
+  timestamp,
   profilePicture,
 }) => {
   return (
@@ -33,10 +38,38 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           <Text
             style={{
               fontFamily: 'Lufga-Bold',
-              fontSize: scale(15),
+              fontSize: scale(16),
               color: COLORS.darkPurple,
             }}>
             {name}
+          </Text>
+        )}
+        {timestamp && (
+          <Text
+            style={{
+              fontFamily: 'Lufga-Bold',
+              fontSize: scale(13),
+              color: COLORS.purple,
+            }}>
+            {formatDistanceToNow(new Date(timestamp), {})}
+          </Text>
+        )}
+        {pay && (
+          <Text
+            style={{
+              fontFamily: 'Lufga-Bold',
+              fontSize: scale(13),
+              color: COLORS.purple,
+            }}>
+            ${pay.toFixed(2)}{' '}
+            <Text
+              style={{
+                fontFamily: 'Lufga-Light',
+                fontSize: scale(12),
+                color: COLORS.darkPurple,
+              }}>
+              pay
+            </Text>
           </Text>
         )}
         {review && (
