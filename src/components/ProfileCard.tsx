@@ -97,7 +97,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               fontSize: scale(13),
               color: COLORS.purple,
             }}>
-            ${earnings}{' '}
+            ${earnings.toFixed(2)}{' '}
             <Text
               style={{
                 fontFamily: 'Lufga-Light',
