@@ -7,10 +7,12 @@ export interface Ride {
   pickupLocation: {
     latitude: number;
     longitude: number;
+    address?: string;
   };
   destination: {
     latitude: number;
     longitude: number;
+    address?: string;
   };
   status:
     | 'pending'
@@ -19,7 +21,7 @@ export interface Ride {
     | 'started'
     | 'picked-up'
     | 'dropped-off';
-  pickupTime: Date;
-  timestamp: Date;
+  pickupTime: string;
+  timestamp: string;
   customer?: User;
 }
