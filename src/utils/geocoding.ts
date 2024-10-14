@@ -5,8 +5,7 @@ export const getAddressFromCoordinates = async (
   try {
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${
-        process.env.GOOGLE_MAPS_API_KEY ||
-        'AIzaSyCqekqW2jfwKL_ZzmP4mqgOgrek1trpu6g'
+        process.env.GOOGLE_MAPS_API_KEY || ''
       }`,
     );
     const data = await response.json();
