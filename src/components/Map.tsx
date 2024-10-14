@@ -1,20 +1,24 @@
 import React, {useState, useEffect, useRef} from 'react';
-import MapView, {Marker} from 'react-native-maps';
+import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import {GeolocationResponse} from '@react-native-community/geolocation/js/NativeRNCGeolocation.ts';
 import {Ride} from '../types/rideTypes.ts';
 import {getUserLocation} from '../utils/location.ts';
-import MapViewDirections from 'react-native-maps-directions';
 import {COLORS} from '../constants/colors.ts';
-import {View} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import {IMAGES} from '../constants/images.ts';
 import {getDistance} from 'geolib';
+import {scale} from '../constants/size.ts';
+import RideRequestMarker from './RIdeRequestMarker.tsx';
+import RideDirections from './RideDirections.tsx';
+import AddressCard from './AddressCard.tsx';
 
 interface MapProps {
   markerData?: Ride[];
   onMarkerPress?: (ride: Ride) => void;
   onMapPress?: () => void;
   selectedRide?: Ride | null;
+  activeRide?: Ride | null;
 }
 
 const Map: React.FC<MapProps> = ({
@@ -22,6 +26,7 @@ const Map: React.FC<MapProps> = ({
   onMarkerPress,
   onMapPress,
   selectedRide,
+  activeRide,
 }) => {
   const [userLocation, setUserLocation] = useState<GeolocationResponse | null>(
     null,
@@ -88,25 +93,25 @@ const Map: React.FC<MapProps> = ({
 
   const handleMarkerPress = (ride: Ride) => {
     if (onMarkerPress) {
-      onMarkerPress(ride); // Call the onMarkerPress prop if it exists
-    }
-    if (mapRef.current && userLocation) {
-      mapRef.current.fitToCoordinates(
-        [
+      onMarkerPress(ride);
+      if (mapRef.current && userLocation) {
+        mapRef.current.fitToCoordinates(
+          [
+            {
+              latitude: ride.pickupLocation.latitude,
+              longitude: ride.pickupLocation.longitude,
+            },
+            {
+              latitude: ride.destination.latitude,
+              longitude: ride.destination.longitude,
+            },
+          ],
           {
-            latitude: ride.pickupLocation.latitude,
-            longitude: ride.pickupLocation.longitude,
+            edgePadding: {top: 160, right: 160, bottom: 160, left: 160}, // Add some padding
+            animated: true,
           },
-          {
-            latitude: ride.destination.latitude,
-            longitude: ride.destination.longitude,
-          },
-        ],
-        {
-          edgePadding: {top: 160, right: 160, bottom: 160, left: 160}, // Add some padding
-          animated: true,
-        },
-      );
+        );
+      }
     }
   };
 
@@ -116,6 +121,8 @@ const Map: React.FC<MapProps> = ({
         <MapView
           ref={mapRef}
           style={{flex: 1}}
+          showsUserLocation
+          showsMyLocationButton
           initialRegion={{
             latitude: userLocation.coords.latitude, // Example initial location
             longitude: userLocation.coords.longitude,
@@ -132,34 +139,21 @@ const Map: React.FC<MapProps> = ({
           {markerData &&
             !selectedRide &&
             markerData.map(ride => (
-              <Marker
+              <RideRequestMarker
                 key={ride.id}
-                coordinate={{
-                  latitude: ride.pickupLocation.latitude,
-                  longitude: ride.pickupLocation.longitude,
-                }}
-                image={IMAGES.locationPinRequest}
-                onPress={() => handleMarkerPress(ride)} // Handle marker press
+                coordinate={ride.pickupLocation} // Pass the pickupLocation coordinates
+                onPress={() => handleMarkerPress(ride)}
               />
             ))}
 
-          {markerData && selectedRide && (
+          {markerData && selectedRide && !activeRide && (
             <>
-              <Marker
-                coordinate={{
-                  latitude: selectedRide.pickupLocation.latitude,
-                  longitude: selectedRide.pickupLocation.longitude,
-                }}
-                image={IMAGES.locationPinRequest}
+              <RideRequestMarker coordinate={selectedRide.pickupLocation} />
+              <RideRequestMarker
+                coordinate={selectedRide.destination}
+                isActive
               />
-              <Marker
-                coordinate={{
-                  latitude: selectedRide.destination.latitude,
-                  longitude: selectedRide.destination.longitude,
-                }}
-                image={IMAGES.locationPin}
-              />
-              <MapViewDirections
+              <RideDirections
                 origin={{
                   latitude: selectedRide.pickupLocation.latitude,
                   longitude: selectedRide.pickupLocation.longitude,
@@ -169,41 +163,124 @@ const Map: React.FC<MapProps> = ({
                   longitude: selectedRide.destination.longitude,
                 }}
                 apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
-                strokeWidth={4}
-                strokeColor={COLORS.darkPurple}
+              />
+              <RideDirections
+                origin={{
+                  latitude: userLocation.coords.latitude,
+                  longitude: userLocation.coords.longitude,
+                }}
+                destination={{
+                  latitude: selectedRide.pickupLocation.latitude,
+                  longitude: selectedRide.pickupLocation.longitude,
+                }}
+                apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
               />
             </>
           )}
 
-          {userLocation && (
-            <Marker
-              coordinate={{
-                latitude: userLocation.coords.latitude,
-                longitude: userLocation.coords.longitude,
-              }}>
-              <View
-                style={{
-                  width: 20,
-                  height: 20,
-                  backgroundColor: COLORS.darkPurple,
-                  borderRadius: 100,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <View
-                  style={{
-                    width: 30,
-                    height: 30,
-                    backgroundColor: COLORS.darkPurple,
-                    borderRadius: 100,
-                    opacity: 0.4,
+          {markerData && activeRide && (
+            <>
+              <RideRequestMarker
+                coordinate={activeRide.pickupLocation}
+                onPress={() => handleMarkerPress(activeRide)}
+              />
+              <RideRequestMarker
+                coordinate={activeRide.destination}
+                onPress={() => handleMarkerPress(activeRide)}
+                isActive
+              />
+
+              {activeRide.status === 'accepted' && (
+                <>
+                  <RideDirections
+                    origin={{
+                      latitude: userLocation.coords.latitude,
+                      longitude: userLocation.coords.longitude,
+                    }}
+                    destination={{
+                      latitude: activeRide.pickupLocation.latitude,
+                      longitude: activeRide.pickupLocation.longitude,
+                    }}
+                    apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                  />
+                  <RideDirections
+                    origin={{
+                      latitude: activeRide.pickupLocation.latitude,
+                      longitude: activeRide.pickupLocation.longitude,
+                    }}
+                    destination={{
+                      latitude: activeRide.destination.latitude,
+                      longitude: activeRide.destination.longitude,
+                    }}
+                    apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                  />
+                </>
+              )}
+              {activeRide.status === 'started' && (
+                <RideDirections
+                  origin={{
+                    latitude: userLocation.coords.latitude,
+                    longitude: userLocation.coords.longitude,
                   }}
+                  destination={{
+                    latitude: activeRide.pickupLocation.latitude,
+                    longitude: activeRide.pickupLocation.longitude,
+                  }}
+                  apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
                 />
-              </View>
-            </Marker>
+              )}
+              {activeRide.status === 'picked-up' && (
+                <RideDirections
+                  origin={{
+                    latitude: activeRide.pickupLocation.latitude,
+                    longitude: activeRide.pickupLocation.longitude,
+                  }}
+                  destination={{
+                    latitude: activeRide.destination.latitude,
+                    longitude: activeRide.destination.longitude,
+                  }}
+                  apikey={process.env.GOOGLE_MAPS_API_KEY || ''}
+                />
+              )}
+            </>
           )}
         </MapView>
       )}
+
+      {/*Address Location Card*/}
+      {markerData && (
+        <AddressCard
+          ride={selectedRide || activeRide}
+          onMarkerPress={handleMarkerPress}
+          rideRequest={markerData.length}
+        />
+      )}
+
+      {/*user location button*/}
+      <TouchableOpacity
+        style={{
+          bottom: '18%',
+          right: 20,
+          position: 'absolute',
+          backgroundColor: COLORS.white,
+          padding: scale(5),
+          borderRadius: scale(100),
+        }}
+        onPress={() => {
+          if (mapRef.current && userLocation) {
+            mapRef.current.animateToRegion({
+              latitude: userLocation.coords.latitude,
+              longitude: userLocation.coords.longitude,
+              latitudeDelta: 0.004,
+              longitudeDelta: 0.016,
+            });
+          }
+        }}>
+        <Image
+          source={IMAGES.userLocationPin}
+          style={{width: 40, height: 40}}
+        />
+      </TouchableOpacity>
     </>
   );
 };
